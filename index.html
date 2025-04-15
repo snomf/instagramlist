@@ -117,6 +117,11 @@
             padding: 5px; line-height: 1;
         }
         header .header-buttons svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--secondary-text-color);
+    transition: fill 0.2s ease; }
+        header .header-buttons svg {
             width: 24px; height: 24px; fill: var(--secondary-text-color);
             transition: fill 0.2s ease;
         }
@@ -306,9 +311,9 @@
     <div id="confirmationModal" class="modal-overlay">
         <div class="modal-content">
             <p id="modalMessage">Confirm this action?</p>
-            <div class="modal-buttons">
-                <button id="modalCancelBtn" class="modal-cancel-btn">Cancel</button>
-                <button id="modalConfirmBtn" class="modal-confirm-btn">Confirm</button>
+             <div class="header-buttons">
+         <button id="resetDefaultBtn" title="Reset to Default List">🔄</button> {/* Changed */}
+         <button id="darkModeToggle" title="Toggle Theme">🌓</button> {/* Changed */}
             </div>
         </div>
     </div>
