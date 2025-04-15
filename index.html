@@ -8,8 +8,7 @@
     <meta name="author" content="cravemenn">
     <!-- Add keywords if desired -->
     <meta name="keywords" content="instagram, list manager, unfollow tool, checklist, social media tool">
-    <title>Instagram List Manager <small><i>by</i> <b> <a href="https://www.instagram.com/cravemenn">cravemenn</a>
- </b></small></title>
+    <title>Instagram List Manager</title>
     <style>
         :root {
             /* Light Mode Colors */
@@ -316,7 +315,8 @@
 
     <div class="container">
         <header>
-            <h1>List Manager</h1>
+            <h1> List Manager <small><i>by</i> <b> <a href="https://www.instagram.com/cravemenn">cravemenn</a>
+ </b></small></h1>
             <div class="header-buttons">
                  <button id="resetDefaultBtn" title="Reset to Default List"><svg><use href="#icon-reset"/></svg></button>
                  <button id="darkModeToggle" title="Toggle Theme"><svg><use href="#icon-theme"/></svg></button>
@@ -1129,27 +1129,3 @@
 
 </body>
 </html>
-```
-
-**Summary of Changes:**
-
-1.  **Custom Modal:** Added HTML/CSS for a modal (`#confirmationModal`) and JS functions (`showModal`, `hideModal`) to handle it. `importNewListAction` and `resetToDefaultAction` now use `showModal` instead of `confirm()`.
-2.  **Full State Export/Import:**
-    *   Added "Export Full State" (`exportFullStateBtn`) and "Import Full State" (`importFullStateBtn`) buttons and a corresponding textarea (`fullStateOutput`).
-    *   `exportFullStateAction`: Creates a JSON object `{ checked: [...], starred: [...] }`, stringifies it, and puts it in the textarea.
-    *   `importFullStateAction`: Parses the JSON from the textarea and calls `applyState` with the parsed arrays.
-    *   `applyState` function now handles setting both checked and starred classes/icons based on the provided arrays.
-    *   "Copy Checked List" (`copyCheckedListBtn`) and its output (`checkedListOutput`) remain for copying only checked, non-starred users.
-    *   "Restore Checked State" (`restoreCheckedListBtn`) remains for restoring *only* the checked status from a simple comma-separated list, preserving the existing starred state.
-3.  **Layout:**
-    *   The `.controls` div now uses `flex-direction: column` and `gap` to stack the sections vertically, providing more space.
-    *   `.button-group` is used within sections to allow buttons to wrap nicely on smaller screens if needed.
-    *   Stats are centered.
-4.  **SVG Icons:**
-    *   An inline `<svg>` block at the top defines reusable icons (`<symbol>`) with IDs (e.g., `#icon-reset`, `#icon-star-outline`).
-    *   Buttons now contain `<svg><use href="#icon-id"/></svg>` instead of emojis.
-    *   CSS styles the SVGs within buttons (size, fill color based on theme/button type).
-    *   Star buttons dynamically change the `href` of the `<use>` element between `#icon-star-outline` and `#icon-star-filled`.
-5.  **Code Structure:** Renamed some functions/variables for clarity (e.g., `copyCheckedListAction`), added comments, and slightly restructured the JS initialization. Sanitized IDs generated for list items.
-
-This version should address your points, offering better state management, a less intrusive confirmation, a cleaner layout, and professional-looking icons.
